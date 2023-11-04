@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz HTML, CSS, JAVASCRIPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #AEDFF7;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #e66cce;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6e0074;
+        }
+        #resultadofinal {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz HTML, CSS, JAVASCRIPT</h1>
+    <div>
+        <p>1. Qual propriedade CSS é usada para alterar a cor de fundo de um elemento HTML?</p>
+        <ul>
+            <li><button onclick="verificaResposta(0,0)">A Font-size.</button></li>
+            <li><button onclick="verificaResposta(0,1)">B Background-color.</button></li>
+            <li><button onclick="verificaResposta(0,2)">C Color.</button></li>
+            <li><button onclick="verificaResposta(0,3)">D Background.</button></li>
+        </ul>
+    </div>
+    <p id="resultado1"></p>
+    <div>
+        <p>2. Um aplicativo construído em linguagens da web, tais como HTML, CSS e Javascript é um aplicativo:</p>
+        <ul>
+            <li><button onclick="verificaResposta(1,0)">A Original.</button></li>
+            <li><button onclick="verificaResposta(1,1)">B Híbrido.</button></li>
+            <li><button onclick="verificaResposta(1,2)">C Padrão.</button></li>
+            <li><button onclick="verificaResposta(1,3)">D Nativo.</button></li>
+        </ul>
+    </div>
+    <p id="resultado2"></p>
+    <div>
+        <p>3. No contexto de estilização de páginas web com CSS, qual das seguintes propriedades é utilizada para alterar a fonte do texto?</p>
+        <ul>
+            <li><button onclick="verificaResposta(2,0)">A text-align.</button></li>
+            <li><button onclick="verificaResposta(2,1)">B font-size.</button></li>
+            <li><button onclick="verificaResposta(2,2)">C font-family.</button></li>
+            <li><button onclick="verificaResposta(2,3)">D font-text.</li>
+        </ul>
+    </div>
+    <p id="resultado3"></p>
+    <div>
+        <p>4. No CSS é possível adicionar propriedade para elementos vazios, por exemplo, um elemento p que não contenha nenhum texto. Isso pode ser feito por meio do seletor:</p>
+        <ul>
+            <li><button onclick="verificaResposta(3,0)">A null.</button></li>
+            <li><button onclick="verificaResposta(3,1)">B void. </button></li>
+            <li><button onclick="verificaResposta(3,2)">C zero.</button></li>
+            <li><button onclick="verificaResposta(3,3)">D empty.</li>
+        </ul>
+    </div>
+    <p id="resultado4"></p>
+    <div>
+        <p>5. Qual é a função do JavaScript em uma página web?</p>
+        <ul>
+            <li><button onclick="verificaResposta(4,0)">A Definir o plano de fundo da página web.</button></li>
+            <li><button onclick="verificaResposta(4,1)">B Armazenar e organizar os dados do usuário.</button></li>
+            <li><button onclick="verificaResposta(4,2)">C Manipular o conteúdo e o comportamento da página de forma dinâmica.</button></li>
+            <li><button onclick="verificaResposta(4,3)">D Realizar a validação de dados inseridos pelo usuário.</li>
+        </ul>
+    </div>
+    <p id="resultado5"></p>
+    <br/>
+    <br/>
+    <button onclick="verificaPontuacao()">Enviar</button>
+    <p id="resultadofinal"></p>
+
+    <script>
+        const respostacorreta = [1, 1, 2, 3, 2];
+        const respostas = [0, 0, 0, 0, 0];
+        let pontuacao = 0;
+
+        function verificaPontuacao(){
+            let total = 0;
+            for (let i = 0; i < respostas.length; i++) {
+                total += respostas[i];
+            }
+            const resultadofinal = document.getElementById("resultadofinal");
+            resultadofinal.textContent = "Quiz concluído! Sua pontuação é: " + total;
+        }
+
+        function verificaResposta(questao, resposta) {
+            if (resposta === respostacorreta[questao]) {
+                document.getElementById("resultado" + (questao + 1)).textContent = "Resposta correta!";
+                respostas[questao] = 1;
+            } else {
+                document.getElementById("resultado" + (questao + 1)).textContent = "Resposta incorreta.";
+                respostas[questao] = 0;
+            }
+        }
+    </script>
+</body>
+</html>
